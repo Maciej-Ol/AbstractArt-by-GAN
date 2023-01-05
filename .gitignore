@@ -1,0 +1,7 @@
+#ignore data and Cubism derectory
+data/
+Cubism/
+models*/
+output*/
+#ignore all png files
+*.png
