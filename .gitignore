@@ -3,5 +3,6 @@ data/
 Cubism/
 models_*/
 output_*/
+new/
 #ignore all png files
 #*.png
