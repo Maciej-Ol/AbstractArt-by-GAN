@@ -4,5 +4,6 @@ Cubism/
 models_*/
 output_*/
 new/
+statistics/
 #ignore all png files
 #*.png
