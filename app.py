@@ -17,7 +17,7 @@ model_filename = "models//generator_model_730.h5"
 #upload model
 generator = load_model(open(model_filename, 'rb'))
 
-def gen_image(generator, x=1, y=1):
+def gen_image_grid(generator, x=1, y=1):
     latent_points = default_rng().normal(0.0, 1.0, (x*y, NOISE_SIZE))
     X = generator.predict(latent_points)
     array=np.empty(((IMG_SIZE,IMG_SIZE,IMG_CHANNELS)),float)
@@ -58,7 +58,7 @@ def main():
 
     with images:
         if st.session_state['button'] == True:
-            image = gen_image(generator,x,y)
+            image = gen_image_grid(generator,x,y)
             images.image(image, caption='Generated Abstract Art',
                          use_column_width=True)
 

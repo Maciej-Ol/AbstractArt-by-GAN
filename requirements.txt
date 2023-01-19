@@ -4,3 +4,4 @@ keras == 2.9.0
 IPython == 8.6.0
 matplotlib == 3.5.3
 streamlit == 1.16.0
+pandas == 1.5.2
