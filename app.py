@@ -1,23 +1,22 @@
+#Author: Maciej Ołdakowski
 import streamlit as st
 import pandas as pd
-
 from keras.models import load_model
 import numpy as np
 from numpy.random import default_rng
 import pathlib
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
-from io import BytesIO
 
 #it is important, that those are the same as in Model_training
 NOISE_SIZE=128
 IMG_SIZE=64
 IMG_CHANNELS=3
-model_filename = "models//generator_model_730.h5"
+model_filename = "models//examples//cub_model_v_0.8_e_320.h5"
 #upload model
-generator = load_model(open(model_filename, 'rb'))
+generator = load_model(model_filename, compile=False)
 
-def gen_image_grid(generator, x=1, y=1):
+def gen_image_grid(generator, x=5, y=5):
     latent_points = default_rng().normal(0.0, 1.0, (x*y, NOISE_SIZE))
     X = generator.predict(latent_points)
     array=np.empty(((IMG_SIZE,IMG_SIZE,IMG_CHANNELS)),float)
