@@ -18,7 +18,7 @@ The model is build using GAN architecture.
 
 # Examples
 Here you can check the app generating images:
-(Abstract Art by GAN)[https://maciej-ol-abstractart-by-gan-app-mpt1bi.streamlit.app/]
+[Abstract Art by GAN](https://maciej-ol-abstractart-by-gan-app-mpt1bi.streamlit.app/)
 
 
 # License and Citations
