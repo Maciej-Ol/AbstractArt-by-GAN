@@ -12,9 +12,13 @@ pathlib.PosixPath = pathlib.WindowsPath
 NOISE_SIZE=128
 IMG_SIZE=64
 IMG_CHANNELS=3
-model_filename = "models//examples//cub_model_v_0.8_e_320.h5"
-#upload model
-generator = load_model(model_filename, compile=False)
+PATH_TO_MODELS="models//examples//"
+#model_filename = "models//examples//cub_model_v_0.8_e_320.h5"
+
+#get all models from models folder
+models_types = pathlib.Path(PATH_TO_MODELS).glob("*.h5")
+#get only names of models
+model_names = [str(model).split("\\")[-1] for model in models_types]
 
 def gen_image_grid(generator, x=5, y=5):
     latent_points = default_rng().normal(0.0, 1.0, (x*y, NOISE_SIZE))
@@ -44,19 +48,24 @@ def main():
     images = st.container()
     
     with overview:
-        st.title("Generate your grid of abstract paitings")
-        st.write("With a help of GAN")
-        x=st.number_input("Insert a x size of an image grid",
-                          min_value=1,max_value=10,value=1)
-        y=st.number_input("Insert a y size of an image grid",
-                          min_value=1,max_value=10,value=1)
+        st.title("Generate your grid of abstract paintings")
+        st.write("### With a help of GAN")
+        model_filename = st.selectbox(
+                'Choose a model:',
+                model_names)
+        x=st.number_input("Insert a x size of an image grid:",
+                          min_value=1,max_value=10,value=5)
+        y=st.number_input("Insert a y size of an image grid:",
+                          min_value=1,max_value=10,value=5)
         if not isinstance(x, int) or not isinstance(y, int):
-            st.error("x and y have to be an integrer between 1 and 10",
+            st.error("x and y have to be an integer between 1 and 10!",
                      icon="🚨")
         st.session_state['button']=st.button("Generate!")
 
     with images:
         if st.session_state['button'] == True:
+            #upload model
+            generator = load_model(PATH_TO_MODELS+model_filename, compile=False)
             image = gen_image_grid(generator,x,y)
             images.image(image, caption='Generated Abstract Art',
                          use_column_width=True)

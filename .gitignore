@@ -1,9 +1,15 @@
 #ignore data derectory
 data/
 #ignore models and output (including statistics) without examples
-models_*/
 output_*/
 new/
 statistics/
 #ignore all png files
 #*.png
+
+# exclude everything
+models/*
+output/*
+# exception to the rule
+!models/examples
+!output/examples
