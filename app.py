@@ -5,14 +5,12 @@ from keras.models import load_model
 import numpy as np
 from numpy.random import default_rng
 import pathlib
-#temp = pathlib.PosixPath
-#pathlib.PosixPath = pathlib.WindowsPath
 
 #it is important, that those are the same as in Model_training
 NOISE_SIZE=128
 IMG_SIZE=64
 IMG_CHANNELS=3
-PATH_TO_MODELS="models//examples//"
+PATH_TO_MODELS="models/examples/"
 #model_filename = "models//examples//cub_model_v_0.8_e_320.h5"
 
 #get all models from models folder
