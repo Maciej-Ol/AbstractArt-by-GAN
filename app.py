@@ -1,5 +1,6 @@
 #Author: Maciej Ołdakowski
 import streamlit as st
+import os
 import pandas as pd
 from keras.models import load_model
 import numpy as np
@@ -14,10 +15,15 @@ PATH_TO_MODELS="models/examples/"
 #model_filename = "models//examples//cub_model_v_0.8_e_320.h5"
 
 #get all models from models folder
-models_types = pathlib.Path(PATH_TO_MODELS).glob("*.h5")
-#get only names of models
-model_names = [str(model).split("\\")[-1] for model in models_types]
+model_names=[]
+for x in os.listdir(PATH_TO_MODELS):
+    if x.endswith(".h5"):
+        model_names.append(x)
 
+#models_types = pathlib.Path(PATH_TO_MODELS).glob("*.h5")
+#get only names of models
+#model_names = [str(model).split("\\")[-1] for model in models_types]
+#model_names = models_types
 def gen_image_grid(generator, x=5, y=5):
     latent_points = default_rng().normal(0.0, 1.0, (x*y, NOISE_SIZE))
     X = generator.predict(latent_points)
