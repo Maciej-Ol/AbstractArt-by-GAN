@@ -5,7 +5,6 @@ import pandas as pd
 from keras.models import load_model
 import numpy as np
 from numpy.random import default_rng
-import pathlib
 
 #it is important, that those are the same as in Model_training
 NOISE_SIZE=128
@@ -20,10 +19,6 @@ for x in os.listdir(PATH_TO_MODELS):
     if x.endswith(".h5"):
         model_names.append(x)
 
-#models_types = pathlib.Path(PATH_TO_MODELS).glob("*.h5")
-#get only names of models
-#model_names = [str(model).split("\\")[-1] for model in models_types]
-#model_names = models_types
 def gen_image_grid(generator, x=5, y=5):
     latent_points = default_rng().normal(0.0, 1.0, (x*y, NOISE_SIZE))
     X = generator.predict(latent_points)
