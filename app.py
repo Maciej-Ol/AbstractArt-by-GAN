@@ -5,8 +5,8 @@ from keras.models import load_model
 import numpy as np
 from numpy.random import default_rng
 import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+#temp = pathlib.PosixPath
+#pathlib.PosixPath = pathlib.WindowsPath
 
 #it is important, that those are the same as in Model_training
 NOISE_SIZE=128
