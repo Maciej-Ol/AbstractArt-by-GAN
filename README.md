@@ -22,7 +22,7 @@ The model is build using GAN architecture.
 </p>
 
 # Examples
-Here you can check the generating images app that uses different models from the paper:
+You can check the generating images app that uses different models from the paper here:
 [Abstract Art by GAN](https://maciej-ol-abstractart-by-gan-app-mpt1bi.streamlit.app/)
 
 
