@@ -27,7 +27,7 @@ Here you can check the generating images app that uses different models from the
 
 
 # License and Citations
-This is an open source project under license (see the LICENSE file). 
+This is an open source project under MIT License license (see the LICENSE file). 
 
 Please cite the following paper:
 M. Ołdakowski, Creating abstract images using Generative Adversarial Network, 2023, PJATK.
