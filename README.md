@@ -25,6 +25,7 @@ The model is build using GAN architecture.
 You can check the generating images app that uses different models from the paper here:
 [Abstract Art by GAN](https://maciej-ol-abstractart-by-gan-app-mpt1bi.streamlit.app/)
 
+<!---
 
 # License and Citations
 This is an open source project under MIT License license (see the LICENSE file). 
@@ -35,3 +36,5 @@ M. Ołdakowski, Creating abstract images using Generative Adversarial Network, 2
 or
 
 M. Ołdakowski, Tworzenie obrazów abstrakcyjnych zużyciem Generatywnej Sieci Przeciwstawnej, 2023, PJATK.
+
+-->
